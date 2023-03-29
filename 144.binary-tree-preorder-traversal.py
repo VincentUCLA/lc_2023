@@ -1,19 +1,19 @@
 #
-# @lc app=leetcode id=94 lang=python3
+# @lc app=leetcode id=144 lang=python3
 #
-# [94] Binary Tree Inorder Traversal
+# [144] Binary Tree Preorder Traversal
 #
-# https://leetcode.com/problems/binary-tree-inorder-traversal/description/
+# https://leetcode.com/problems/binary-tree-preorder-traversal/description/
 #
 # algorithms
-# Easy (73.70%)
-# Likes:    11141
-# Dislikes: 543
-# Total Accepted:    2M
-# Total Submissions: 2.6M
+# Easy (66.82%)
+# Likes:    6619
+# Dislikes: 173
+# Total Accepted:    1.3M
+# Total Submissions: 1.9M
 # Testcase Example:  '[1,null,2,3]'
 #
-# Given the root of a binary tree, return the inorder traversal of its nodes'
+# Given the root of a binary tree, return the preorder traversal of its nodes'
 # values.
 # 
 # 
@@ -21,7 +21,7 @@
 # 
 # 
 # Input: root = [1,null,2,3]
-# Output: [1,3,2]
+# Output: [1,2,3]
 # 
 # 
 # Example 2:
@@ -48,6 +48,7 @@
 # 
 # 
 # Follow up: Recursive solution is trivial, could you do it iteratively?
+# 
 #
 
 # @lc code=start
@@ -58,9 +59,9 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        if root == None: return []
-        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root: return []
+        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
 
 # @lc code=end
 
