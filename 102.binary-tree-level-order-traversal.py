@@ -57,21 +57,11 @@
 #         self.right = right
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        cur_lvl, new_lvl, cur_res, res = [], [], [], []
-        if root == None: return res
-        cur_lvl.append(root)
-        while cur_lvl:
-            cur = cur_lvl.pop(0)
-            cur_res.append(cur.val)
-            if cur.left != None: new_lvl.append(cur.left)
-            if cur.right != None: new_lvl.append(cur.right)
-            if not cur_lvl:
-                cur_lvl = new_lvl
-                res.append(cur_res)
-                cur_res, new_lvl = [], []
+        res, level = [], [root]
+        while root and level:
+            res.append([node.val for node in level])            
+            level = [kid for n in level for kid in (n.left, n.right) if kid]
         return res
-            
 
-        
 # @lc code=end
 
