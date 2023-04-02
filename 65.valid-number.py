@@ -85,7 +85,7 @@
 class Solution:
     def isNumber(self, s: str) -> bool:
         import re
-        regex = re.compile(r'^[+-]?((\d+\.?\d*)|(\d*\.?\d+))([eE][+-]?\d+)?$')
+        regex = re.compile(r'^[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?$')
         return bool(regex.match(s.strip()))
         
 # @lc code=end
